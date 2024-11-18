@@ -1,10 +1,10 @@
 import Container from "@/components/Container";
-import PrivateNavbar from "@/layouts/private/Navbar";
+import SigninForm from "@/views/Authenticate/SigninForm";
 
-export default function Home() {
+export default function Test() {
   return (
     <Container className="justify-center">
-      <PrivateNavbar />
+      <SigninForm />
     </Container>
   );
 }

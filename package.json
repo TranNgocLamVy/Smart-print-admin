@@ -9,9 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.4.8",
+    "@phosphor-icons/react": "^2.1.7",
+    "axios": "^1.7.7",
+    "eslint": "^9.15.0",
+    "framer-motion": "^11.11.17",
     "next": "^14.2.7",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sonner": "^1.7.0",
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
     "@types/node": "^20",
