@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   className?: string;
@@ -6,5 +7,6 @@ interface Props {
 }
 
 export default function List({ className, children }: Props) {
-  return <ul className={className}>{children}</ul>;
+  const defaultClassName = "flex";
+  return <ul className={twMerge(defaultClassName, className)}>{children}</ul>;
 }

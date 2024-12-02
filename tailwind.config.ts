@@ -10,21 +10,10 @@ const config: Config = {
     "./src/views/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  important: true,
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: "#e8f3fb",
-          100: "#b6daf4",
-          200: "#93c8ee",
-          300: "#62afe7",
-          400: "#43a0e2",
-          500: "#1488db",
-          600: "#127cc7",
-          700: "#0e619b",
-          800: "#0b4b78",
-          900: "#08395c",
-        },
         neutral: {
           50: "#ffffff",
           100: "#fcfcfc",
@@ -91,6 +80,46 @@ const config: Config = {
       },
     },
   },
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      addCommonColors: true,
+      themes: {
+        light: {
+          layout: {},
+          colors: {
+            primary: {
+              50: "#e8f3fb",
+              100: "#b6daf4",
+              200: "#93c8ee",
+              300: "#62afe7",
+              400: "#43a0e2",
+              500: "#1488db",
+              600: "#127cc7",
+              700: "#0e619b",
+              800: "#0b4b78",
+              900: "#08395c",
+              DEFAULT: "#1488db",
+              foreground: "#ffffff",
+            },
+            danger: {
+              50: "#fbeaea",
+              100: "#f1bfbf",
+              200: "#eb9f9f",
+              300: "#e27474",
+              400: "#dc5959",
+              500: "#d32f2f",
+              600: "#c02b2b",
+              700: "#962121",
+              800: "#741a1a",
+              900: "#591414",
+              DEFAULT: "#d32f2f",
+              foreground: "#ffffff",
+            },
+          },
+        },
+      },
+    }),
+  ],
+  darkMode: "class",
 };
 export default config;

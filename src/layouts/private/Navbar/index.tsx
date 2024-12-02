@@ -8,18 +8,28 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Navbar,
-  NavbarBrand,
   NavbarContent,
   NavbarItem,
   useDisclosure,
 } from "@nextui-org/react";
-import { SignOut, User } from "@phosphor-icons/react";
+import { SignOut } from "@phosphor-icons/react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function PrivateNavbar() {
   const { isOpen, onOpenChange } = useDisclosure();
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    Cookies.remove("token");
+    router.push("/signin");
+  };
 
   return (
-    <Navbar maxWidth="full" className="fixed top-0 left-0 shadow-md py-1">
+    <Navbar
+      isBlurred={false}
+      maxWidth="full"
+      className="fixed top-0 left-0 shadow-md py-1">
       <NavbarContent justify="start">
         <NavbarItem>
           <Logo className="size-12" />
@@ -32,21 +42,13 @@ export default function PrivateNavbar() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent className="gap-4" justify="end">
-        <NavbarItem className="flex flex-col h-full w-fit items-end justify-center">
-          <h1 className="text-xl font-bold">Trần Ngọc Lâm Vỹ</h1>
-          <span className="text-sm font-medium">Admin</span>
-        </NavbarItem>
         <Dropdown radius="md">
           <DropdownTrigger>
             <Avatar src="/user.svg" isBordered color="default" />
           </DropdownTrigger>
           <DropdownMenu>
             <DropdownItem
-              onClick={() => onOpenChange()}
-              startContent={<User />}>
-              Profile
-            </DropdownItem>
-            <DropdownItem
+              onClick={handleSignOut}
               color="danger"
               className="text-error-500"
               startContent={<SignOut />}>

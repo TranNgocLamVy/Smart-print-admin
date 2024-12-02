@@ -1,7 +1,9 @@
 "use client";
 import { createContext, ReactNode, useContext } from "react";
 
-type AuthContextType = {};
+type AuthContextType = {
+  token: string | undefined;
+};
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
@@ -15,8 +17,11 @@ export const useAuth = () => {
 
 type Props = {
   children: ReactNode;
+  token: string | undefined;
 };
 
-export default function AuthProvider({ children }: Props) {
-  return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
+export default function AuthProvider({ children, token }: Props) {
+  return (
+    <AuthContext.Provider value={{ token }}>{children}</AuthContext.Provider>
+  );
 }

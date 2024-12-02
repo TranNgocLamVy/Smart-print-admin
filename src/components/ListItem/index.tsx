@@ -1,10 +1,21 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 interface Props {
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
+  style?: CSSProperties;
+  onClick?: () => void;
 }
 
-export default function ListItem({ className, children }: Props) {
-  return <li className={className}>{children}</li>;
+export default function ListItem({
+  className,
+  children,
+  style,
+  onClick,
+}: Props) {
+  return (
+    <li onClick={onClick} className={className} style={style}>
+      {children}
+    </li>
+  );
 }
